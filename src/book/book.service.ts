@@ -34,7 +34,16 @@ export class BookService {
             title: {
                 $regex: query.keyword,
                 $options: 'i'
+            },
+            month: {
+                $regex: query.keyword,
+                $options: 'i'
+            },
+            year: {
+                $regex: query.keyword,
+                $options: 'i'
             }
+
         } : {}
         const books = await this.bookModel.find({ ...keyword });
         return books;
